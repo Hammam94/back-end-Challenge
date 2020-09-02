@@ -5,17 +5,26 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
 
 Role.create!([
-  { role_name: 'driver' },
-  { role_name: 'passenger' }
+  { name: 'driver' },
+  { name: 'passenger' }
 ])
 
+1000000.times do |i|
+  User.create!({
+    email: Faker::Internet.unique.email,
+    name: Faker::Name.unique.name,
+    password: "12345678",
+    password_confirmation: "12345678",
+    role_id: 1
+  })
+end
 
-User.create!({
-  email: "admin@admin.com",
-  name: "hammam",
-  password: "12345678",
-  password_confirmation: "12345678",
-  role: Role.first
-})
+2000000.times do |i|
+  Trip.create!({
+    trip_date: Faker::Date.backward(2),
+    user_id: Faker::Date.backward(from: 1, to: 40)
+  })
+end
