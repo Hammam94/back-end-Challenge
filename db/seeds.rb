@@ -12,6 +12,14 @@ Role.create!([
   { name: 'passenger' }
 ])
 
+User.create!({
+  email: "admin@admin.com",
+  name: Faker::Name.unique.name,
+  password: "12345678",
+  password_confirmation: "12345678",
+  role_id: 1
+})
+
 1000000.times do |i|
   User.create!({
     email: Faker::Internet.unique.email,
