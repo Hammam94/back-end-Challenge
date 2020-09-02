@@ -1,11 +1,11 @@
 # To start working with it locally
 ---
-> Step 1: setup ruby on rails and mysql database on your machine.
-> Step 2: clone the project
-> Step 3: cd inside the project and run this command `bundle`
-> Step 4: put your mysql database credentials in config/database.yml.
-> Step 5: run this command `rails db:create && rails db:migrate && rails db seed` but the seeds will take alot of time because it more than two milion records for me it take more than 9 hours.
-> Step 6: run rails server with command `rails s`
+> - Step 1: setup ruby on rails and mysql database on your machine.
+> - Step 2: clone the project
+> - Step 3: cd inside the project and run this command `bundle`
+> - Step 4: put your mysql database credentials in config/database.yml.
+> - Step 5: run this command `rails db:create && rails db:migrate && rails db seed` but the seeds will take alot of time because it more than two milion records for me it take more than 9 hours.
+> - Step 6: run rails server with command `rails s`
 
 For more info:
   After seeding try using Email "admin@admin.com" with password "12345678" with POST request body
@@ -17,11 +17,11 @@ For more info:
 
 # How to deploy rails api
 ---
-> Step 1: Install rbenv and Ruby on the server.
-> Step 2: Install and configure Passenger & Nginx
-> Step 3: Install Capistrano gems and capfiy the project
-> Step 4: deploy the project.
-> Step 5: run rails as production daemon.
+> - Step 1: Install rbenv and Ruby on the server.
+> - Step 2: Install and configure Passenger & Nginx
+> - Step 3: Install Capistrano gems and capfiy the project
+> - Step 4: deploy the project.
+> - Step 5: run rails as production daemon.
 
 For more Accurate i follow the instruction here and customize what i want
     https://www.jetbrains.com/help/ruby/capistrano.html#deploy
