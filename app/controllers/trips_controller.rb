@@ -9,14 +9,13 @@ class TripsController < ApplicationController
         new_month_counter = 0
         new_year_counter = 0
 
-        if user.trips.last.created_at.month == Date.today.month
+        if Trip.where(user_id: user.id).last.created_at.month == Date.today.month
           new_month_counter = user.month_counter.to_i + 1
         end
 
-        if user.trips.last.created_at.year == Date.today.year
+        if Trip.where(user_id: user.id).last.created_at.year == Date.today.year
           new_year_counter = user.year_counter.to_i + 1
         end
-
 
         @trip = user.trips.create!()
 
