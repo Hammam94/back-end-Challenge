@@ -5,15 +5,23 @@ class TripsController < ApplicationController
     begin
       user = User.find_by(email: trip_params[:email])
       if user.has_role? :driver
+
+        new_month_counter = 0
+        new_year_counter = 0
+
+        if user.trips.last.created_at.month == Date.today.beginning_of_month
+          new_month_counter = user.month_counter.to_i + 1
+        end
+
+        if user.trips.last.created_at.year == Date.today.beginning_of_year
+          new_year_counter = user.year_counter.to_i + 1
+        end
+
         @trip = user.trips.create!()
 
-        new_month_counter = user.month_counter.to_i + 1
-        new_year_counter = user.year_counter.to_i + 1
-        new_all_time_counter = user.all_time_counter.to_i + 1
-
         user.update(
-          month_counter: user.month_counter.to_i + 1,
-          year_counter: user.year_counter.to_i + 1,
+          month_counter: new_month_counter,
+          year_counter: new_year_counter,
           all_time_counter: user.all_time_counter.to_i + 1
         )
 
