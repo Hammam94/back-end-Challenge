@@ -17,6 +17,7 @@ class TripsController < ApplicationController
           new_year_counter = user.year_counter.to_i + 1
         end
 
+
         @trip = user.trips.create!()
 
         user.update(
